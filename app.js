@@ -23,7 +23,7 @@ fetch(url_api,{
                 <h3>${product.title}</h3>
                 <p>${product.description}</p>
                 <p>${product.value}</p>
-                <p>categoria: ${product.category_id}</p>
+                
                 <div>
                     <button onclick='borrar(${product.id})' id='eliminar'>Eliminar</button>
                     <button onclick='editar(${product.id})' id='editar'>Editar</button>
@@ -41,10 +41,10 @@ agregar.addEventListener('submit', function(e) {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
     let value = parseInt(document.getElementById('value').value);
-    let category = parseInt(document.getElementById('category_id').value);
+    
     let images = [document.getElementById('images').value];
     let hola = ['hola', 'adios']
-    console.log(typeof(title), typeof(description), typeof(value), typeof(category), typeof(images), typeof(hola));
+    console.log(typeof(title), typeof(description), typeof(value),  typeof(images), typeof(hola));
 
     fetch(url_api, {
         method: 'POST',
@@ -56,7 +56,7 @@ agregar.addEventListener('submit', function(e) {
             title: title,
             description: description,
             value: value,
-            category_id: category,
+           
             images: images
         })
     })
@@ -76,7 +76,7 @@ function editar(id){
     let title = prompt("Digite el nuevo titulo")
     let description = prompt("Digite la nueva descripcion")
     let value = parseInt(prompt("Digite el nuevo valor"))
-    let category = parseInt(prompt("Digite la nueva categoria"))
+    
     let images = [prompt("Digite la nueva imagen")]
 
     fetch(url_api + '/' + id, {
@@ -89,7 +89,7 @@ function editar(id){
             title: title,
             description: description,
             value: value,
-            category_id: category,
+            
             images: images
         })
     })
